@@ -43,5 +43,9 @@ Get-ChildItem -path $baseDestination -Filter *.msp -Recurse | ForEach-Object {
 
 Get-ChildItem -Path $baseDestination -Filter *.msp -Recurse | Move-Item -Destination $baseDestination
 
+#move the cabs to the Office Updates folder
+Get-ChildItem -Path C:\fso1 -Filter *.msp  | move-item -Destination $OffiCeUpdatesFolder
 
+#cleanup
+Get-ChildItem -Path c:\fso1 | Remove-Item -Recurse -Force
 
