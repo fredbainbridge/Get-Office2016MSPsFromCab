@@ -36,16 +36,15 @@ Get-ChildItem -Path $cabsFolder -Filter *.cab -Recurse | ForEach-Object {
     
 }
 
-
+#rename and prepare the files for copy
 Get-ChildItem -path $baseDestination -Filter *.msp -Recurse | ForEach-Object {
     Rename-Item -Path $PSItem.FullName -NewName ($PSItem.BaseName + (New-Guid).GUID + ".msp")
 }
-
 Get-ChildItem -Path $baseDestination -Filter *.msp -Recurse | Move-Item -Destination $baseDestination
 
 #move the cabs to the Office Updates folder
-Get-ChildItem -Path C:\fso1 -Filter *.msp  | move-item -Destination $OffiCeUpdatesFolder
+Get-ChildItem -Path $baseDestination -Filter *.msp  | move-item -Destination $OffiCeUpdatesFolder -Verbose
 
 #cleanup
-Get-ChildItem -Path c:\fso1 | Remove-Item -Recurse -Force
+Get-ChildItem -Path $baseDestination | Remove-Item -Recurse -Force -Verbose
 
