@@ -2,6 +2,10 @@
 # Originally Published 5/31/2016
 # 
 
+$cabsFolder = "\\cm01\Software Update Management\Office 2016 x64 Updates\"
+$baseDestination = "C:\fso1"
+$OffiCeUpdatesFolder = "\\cm01\Source\Microsoft Office 2016 x86\updates"
+
 #special thanks to https://technet.microsoft.com/en-us/magazine/2009.04.heyscriptingguy.aspx
 Function ConvertFrom-Cab
 {
@@ -27,12 +31,7 @@ Function ConvertFrom-Cab
 }
 
 
-$cabsFolder = "\\cm01\Software Update Management\Office 2016 x64 Updates\"
-$baseDestination = "C:\fso1"
-$OffiCeUpdatesFolder = "\\cm01\Source\Microsoft Office 2016 x86\updates"
-
-
-#get all the cabs
+#get all the cab files and copy them locally
 Get-ChildItem -Path $cabsFolder -Filter *.cab -Recurse | ForEach-Object {
     $GUID = (new-guid).Guid
     $destination = "$baseDestination\$GUID"
