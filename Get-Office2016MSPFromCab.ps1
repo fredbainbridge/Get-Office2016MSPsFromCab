@@ -1,4 +1,8 @@
-﻿
+﻿# Author - Fred Bainbridge
+# Originally Published 5/31/2016
+# 
+
+#special thanks to https://technet.microsoft.com/en-us/magazine/2009.04.heyscriptingguy.aspx
 Function ConvertFrom-Cab
 {
  [CmdletBinding()]
@@ -23,9 +27,10 @@ Function ConvertFrom-Cab
 }
 
 
-#$cab = "\\cm\Software Update Management\Office 2016 x64 Updates\0b29b011-b8fe-4051-ab53-016ac266e1db\outlook-x-none.cab"
-$cabsFolder = "\\cm\Software Update Management\Office 2016 x64 Updates\"
+$cabsFolder = "\\cm01\Software Update Management\Office 2016 x64 Updates\"
 $baseDestination = "C:\fso1"
+$OffiCeUpdatesFolder = "\\cm01\Source\Microsoft Office 2016 x86\updates"
+
 
 #get all the cabs
 Get-ChildItem -Path $cabsFolder -Filter *.cab -Recurse | ForEach-Object {
