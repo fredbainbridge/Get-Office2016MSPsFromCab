@@ -2,15 +2,6 @@
 # Originally Published 5/31/2016
 # 
 
-$cabsFolder = "\\cm01\Software Update Management\Office 2016 x64 Updates\"
-$baseDestination = "C:\fso1"
-$OffiCeUpdatesFolder = "\\cm01\Source\Microsoft Office 2016 x86\updates"
-
-#This is for updating the Application Content.
-$siteCode = "LAB"
-$siteserver = "cm01.cm.lab"
-$appname = "Microsoft Office 2016 x86"
-
 #special thanks to https://technet.microsoft.com/en-us/magazine/2009.04.heyscriptingguy.aspx
 Function ConvertFrom-Cab
 {
@@ -35,8 +26,24 @@ Function ConvertFrom-Cab
  $DestinationFolder.CopyHere($sourceCab)
 }
 
+Function Get-Office2016MSPFromCab {
+[CmdletBinding()]
+param (
+    $cabsFolder = "\\cm01\Software Update Management\Microsoft Office 2016 x86 - Software Updates\",
+    $baseDestination = "C:\fso1",
+    $OffiCeUpdatesFolder = "\\cm01\Source\Microsoft Office 2016 x86\updates",
+    $siteCode = "LAB",
+    $siteserver = "cm01.cm.lab",
+    $appname = "Microsoft Office 2016 x86"
+)
+
+if(-not (test-path $baseDestination))
+{
+    new-item $baseDestination -ItemType Directory
+}
 
 #get all the cab files and copy them locally
+write-host $cabsFolder
 Get-ChildItem -Path $cabsFolder -Filter *.cab -Recurse | ForEach-Object {
     $GUID = (new-guid).Guid
     $destination = "$baseDestination\$GUID"
@@ -59,3 +66,4 @@ Get-ChildItem -Path $baseDestination | Remove-Item -Recurse -Force -Verbose
 
 #Update the content
 (Get-Wmiobject -Namespace "root\SMS\Site_$sitecode" -Class SMS_ContentPackage -filter "Name='$appName'").Commit() 
+}
