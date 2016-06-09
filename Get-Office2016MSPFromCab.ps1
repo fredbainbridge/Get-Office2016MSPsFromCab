@@ -1,6 +1,13 @@
 ﻿# Author - Fred Bainbridge
 # Originally Published 5/31/2016
 # 
+# Usage Examples
+#
+# Use the defaut parameters in the script (update as needed)
+# Get-Office2016MSPFromCab -UpdateDP $true -siteCode "LAB" -siteserver "cm01.cm.lab"
+#
+# Use explicit parameters, do not update the Distribution Points
+# Get-Office2016MSPFromCab -SoftwareUpdatesFolder "\\cm01\SoftwareUpdates\Office2016x86Updates" -baseDestination "c:\fso1" -OfficeUpdatesFolder "\\cm01\Source\Microsoft Office 2016 x86\updates" 
 
 #special thanks to https://technet.microsoft.com/en-us/magazine/2009.04.heyscriptingguy.aspx
 Function ConvertFrom-Cab
@@ -29,12 +36,14 @@ Function ConvertFrom-Cab
 Function Get-Office2016MSPFromCab {
 [CmdletBinding()]
 param (
-    $cabsFolder = "\\cm01\Software Update Management\Microsoft Office 2016 x86 - Software Updates\",
+    $SoftwareUpdatesFolder = "\\cm01\Software Update Management\Microsoft Office 2016 x86 - Software Updates\",
     $baseDestination = "C:\fso1",
-    $OffiCeUpdatesFolder = "\\cm01\Source\Microsoft Office 2016 x86\updates",
+    $OfficeUpdatesFolder = "\\cm01\Source\Microsoft Office 2016 x86\updates",
+    [bool]$UpdateDP = $false, 
     $siteCode = "LAB",
     $siteserver = "cm01.cm.lab",
     $appname = "Microsoft Office 2016 x86"
+
 )
 
 if(-not (test-path $baseDestination))
@@ -43,8 +52,8 @@ if(-not (test-path $baseDestination))
 }
 
 #get all the cab files and copy them locally
-write-host $cabsFolder
-Get-ChildItem -Path $cabsFolder -Filter *.cab -Recurse | ForEach-Object {
+write-host $SoftwareUpdatesFolder
+Get-ChildItem -Path $SoftwareUpdatesFolder -Filter *.cab -Recurse | ForEach-Object {
     $GUID = (new-guid).Guid
     $destination = "$baseDestination\$GUID"
     Write-host  $destination
@@ -65,5 +74,7 @@ Get-ChildItem -Path $baseDestination -Filter *.msp  | move-item -Destination $Of
 Get-ChildItem -Path $baseDestination | Remove-Item -Recurse -Force -Verbose
 
 #Update the content
+if($UpdateDP){
 (Get-Wmiobject -Namespace "root\SMS\Site_$sitecode" -Class SMS_ContentPackage -filter "Name='$appName'").Commit() 
+}
 }
