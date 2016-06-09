@@ -6,6 +6,11 @@ $cabsFolder = "\\cm01\Software Update Management\Office 2016 x64 Updates\"
 $baseDestination = "C:\fso1"
 $OffiCeUpdatesFolder = "\\cm01\Source\Microsoft Office 2016 x86\updates"
 
+#This is for updating the Application Content.
+$siteCode = "LAB"
+$siteserver = "cm01.cm.lab"
+$appname = "Microsoft Office 2016 x86"
+
 #special thanks to https://technet.microsoft.com/en-us/magazine/2009.04.heyscriptingguy.aspx
 Function ConvertFrom-Cab
 {
@@ -52,3 +57,5 @@ Get-ChildItem -Path $baseDestination -Filter *.msp  | move-item -Destination $Of
 #cleanup
 Get-ChildItem -Path $baseDestination | Remove-Item -Recurse -Force -Verbose
 
+#Update the content
+(Get-Wmiobject -Namespace "root\SMS\Site_$sitecode" -Class SMS_ContentPackage -filter "Name='$appName'").Commit() 
