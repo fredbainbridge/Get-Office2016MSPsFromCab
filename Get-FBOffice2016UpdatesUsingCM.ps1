@@ -1,10 +1,12 @@
-﻿[CmdletBinding()]
+﻿#this downloads the information about updates given the localized display name and stores it in a variable.  
+#This can be used to create the software update detailed text file. (name, url and filename)
+[CmdletBinding()]
 param(
     $siteserver = "localhost",
     $sitecode = "LAB",
     $StagingLocation = "c:\fso1",
     $OfficeInstallatioNSourcePath = "\\cm01\Software Update Management\Office2016x86",
-    $OfficeUpdatesFile = "https://raw.githubusercontent.com/fredbainbridge/Get-Office2016MSPsFromCab/master/Office2016-Oct2016-SoftwareUpdates.txt"
+    $OfficeUpdatesFile = "https://raw.githubusercontent.com/fredbainbridge/Get-Office2016MSPsFromCab/master/Office2016OctUpdates-LocalizedName.txt"
 )
 $NameSpace = "root\SMS\Site_$sitecode"
 $class = "SMS_SoftwareUpdate"
@@ -36,11 +38,9 @@ Function ConvertFrom-Cab
 }
 $UpdateLine = @();
 
-#debug
-#$FileName = "Office2016OctUpdates-Debug.txt"
 
 $Updates -split '[\r\n]' |? {$_}| ForEach-Object {
-    $UpdateName, $URL = $PSItem.split(",")
+    $UpdateName = $PSItem
     $CI_ID = (Get-WmiObject -Class $class -Namespace $NameSpace -Filter "LocalizedDisplayName='$UpdateName'" -Property "CI_ID").CI_ID
     $ContentID = (get-wmiobject -Query "select * from SMS_CItoContent where ci_id=$CI_ID" -Namespace $NameSpace).ContentID
     #get the content location (URL)
@@ -49,34 +49,8 @@ $Updates -split '[\r\n]' |? {$_}| ForEach-Object {
         $FileName = $objContent.FileName
         $URL = $objContent.SourceURL
         $UpdateLine += "$UpdateName,$URL,$FileName"
-        <#try 
-        {
-            Start-BitsTransfer -Source $URL -Destination $FileName
-            If(Test-Path $FileName)
-            {
-                $GUID = (new-guid).Guid
-                $destination = "$StagingLocation\$GUID"
-                ConvertFrom-Cab -cab $FileName -destination $destination
-                Remove-Item -Path $FileName
-                Get-ChildItem -path $destination -Filter *.msp -Recurse | ForEach-Object {
-                    Rename-Item -Path $PSItem.FullName -NewName ($PSItem.BaseName + (New-Guid).GUID + ".msp")
-                }
-                Get-ChildItem -Path $destination -Filter *.msp -Recurse | Move-Item -Destination $StagingLocation
-                Remove-Item -path $destination -Recurse -Force
-            }
-        }
-        catch
-        {
-            write-host "stopping here"
-        }
-        #>
     }
 }
 
-
-
-#see example here 
-#https://social.technet.microsoft.com/Forums/systemcenter/en-US/f11a43e0-409c-443a-adb0-74de102c40f7/add-updates-to-a-deployment-package-using-powershell?forum=configmgrgeneral&prof=required
-
-
-#Get-WmiObject -Class $class -Namespace $name
+$UpdateLine | clip
+#$UpdateLine | ForEach-Object {$psItem.split(",")[0]} | select -Unique | clip
