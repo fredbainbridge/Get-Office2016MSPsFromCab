@@ -1,26 +1,17 @@
-﻿$siteserver = "localhost"
-$sitecode = "LAB"
+﻿[CmdletBinding()]
+param(
+    $siteserver = "localhost",
+    $sitecode = "LAB",
+    $StagingLocation = "c:\fso1",
+    $OfficeInstallatioNSourcePath = "\\cm01\Software Update Management\Office2016x86",
+    $OfficeUpdatesFile = "https://raw.githubusercontent.com/fredbainbridge/Get-Office2016MSPsFromCab/master/Office2016-Oct2016-SoftwareUpdates.txt"
+)
 $NameSpace = "root\SMS\Site_$sitecode"
-$StagingLocation = "c:\fso1"
-$OfficeInstallatioNSourcePath = "\\cm01\Software Update Management\Office2016x86"
 $class = "SMS_SoftwareUpdate"
-$FileName = "Office2016-Oct2016-SoftwareUpdates.txt"
-<#
-#create new software updates package
-$WMIConnection = [WMICLASS]"\\$SiteServer\ROOT\SMS\Site_$($sitecode):SMS_SoftwareUpdatesPackage"
-$NewSUPPackage = $WMIConnection.psbase.CreateInstance()
-$NewSUPPackage.Name = "PowerShell SUP Package"
-$NewSUPPackage.Description = "PowerShell TEST"
-$NewSUPPackage.PkgSourceFlag = 2
-$NewSUPPackage.PkgSourcePath = "$path"
-$NewSUPPackage.Put()
- 
-$SoftwareUpdatePackage = Get-WmiObject -Class SMS_SoftwareupdatesPackage -Namespace $name
-#>
-#download the files.
+    
+#download the text file.
+$updates = (Invoke-WebRequest -Uri $OfficeUpdatesFile).content
 
-#debug
-#$FileName = "Office2016OctUpdates-Debug.txt"
 Function ConvertFrom-Cab
 {
     [CmdletBinding()]
@@ -43,8 +34,13 @@ Function ConvertFrom-Cab
     Write-Verbose "Expanding $cab to $destination"
     $DestinationFolder.CopyHere($sourceCab)
 }
+$UpdateLine = @();
 
-Get-Content $FileName | ForEach-Object {
+#debug
+#$FileName = "Office2016OctUpdates-Debug.txt"
+
+$Updates -split '[\r\n]' |? {$_}| ForEach-Object {
+    $UpdateName = $PSItem
     $CI_ID = (Get-WmiObject -Class $class -Namespace $NameSpace -Filter "LocalizedDisplayName='$PSItem'" -Property "CI_ID").CI_ID
     $ContentID = (get-wmiobject -Query "select * from SMS_CItoContent where ci_id=$CI_ID" -Namespace $NameSpace).ContentID
     #get the content location (URL)
@@ -52,7 +48,8 @@ Get-Content $FileName | ForEach-Object {
         $objContent = Get-WmiObject -ComputerName $siteserver -Namespace $NameSpace -Class SMS_CIContentFiles -Filter "ContentID = '$PSITEM'"  
         $FileName = $StagingLocation + "\" +  (New-Guid).GUID + $objContent.FileName
         $URL = $objContent.SourceURL
-        try 
+        $UpdateLine += "$UpdateName,$URL"
+        <#try 
         {
             Start-BitsTransfer -Source $URL -Destination $FileName
             If(Test-Path $FileName)
@@ -72,6 +69,7 @@ Get-Content $FileName | ForEach-Object {
         {
             write-host "stopping here"
         }
+        #>
     }
 }
 
