@@ -40,15 +40,15 @@ $UpdateLine = @();
 #$FileName = "Office2016OctUpdates-Debug.txt"
 
 $Updates -split '[\r\n]' |? {$_}| ForEach-Object {
-    $UpdateName = $PSItem
-    $CI_ID = (Get-WmiObject -Class $class -Namespace $NameSpace -Filter "LocalizedDisplayName='$PSItem'" -Property "CI_ID").CI_ID
+    $UpdateName, $URL = $PSItem.split(",")
+    $CI_ID = (Get-WmiObject -Class $class -Namespace $NameSpace -Filter "LocalizedDisplayName='$UpdateName'" -Property "CI_ID").CI_ID
     $ContentID = (get-wmiobject -Query "select * from SMS_CItoContent where ci_id=$CI_ID" -Namespace $NameSpace).ContentID
     #get the content location (URL)
     $ContentID | ForEach-Object {
         $objContent = Get-WmiObject -ComputerName $siteserver -Namespace $NameSpace -Class SMS_CIContentFiles -Filter "ContentID = '$PSITEM'"  
-        $FileName = $StagingLocation + "\" +  (New-Guid).GUID + $objContent.FileName
+        $FileName = $objContent.FileName
         $URL = $objContent.SourceURL
-        $UpdateLine += "$UpdateName,$URL"
+        $UpdateLine += "$UpdateName,$URL,$FileName"
         <#try 
         {
             Start-BitsTransfer -Source $URL -Destination $FileName
