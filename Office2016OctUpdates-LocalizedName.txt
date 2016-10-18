@@ -7,7 +7,6 @@ Security Update for Microsoft Office 2016 (KB3085635) 32-Bit Edition
 Security Update for Microsoft Office 2016 (KB3114690) 32-Bit Edition
 Security Update for Microsoft OneNote 2016 (KB3115419) 32-Bit Edition
 Security Update for Microsoft Outlook 2016 (KB3118293) 32-Bit Edition
-Security Update for Microsoft PowerPoint 2016 (KB3114518) 32-Bit Edition
 Security Update for Microsoft Project 2016 (KB2920698) 32-Bit Edition
 Security Update for Microsoft Publisher 2016 (KB2920680) 32-Bit Edition
 Security Update for Microsoft Visio 2016 (KB3115041) 32-Bit Edition
