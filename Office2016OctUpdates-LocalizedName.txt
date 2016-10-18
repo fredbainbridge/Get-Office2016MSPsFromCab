@@ -50,3 +50,8 @@ Update for Microsoft Outlook 2016 (KB3118375) 32-Bit Edition
 Update for Microsoft PowerPoint 2016 (KB3118328) 32-Bit Edition
 Update for Microsoft Project 2016 (KB3118266) 32-Bit Edition
 Update for Microsoft Visio 2016 (KB3118323) 32-Bit Edition
+Update for Microsoft Project 2016 (KB3118266) 32-Bit Edition
+Update for Microsoft OneDrive for Business (KB3118265) 32-Bit Edition
+Update for Microsoft Outlook 2016 (KB3118375) 32-Bit Edition
+Update for Microsoft Visio 2016 (KB3118323) 32-Bit Edition
+Update for Microsoft PowerPoint 2016 (KB3118328) 32-Bit Edition
