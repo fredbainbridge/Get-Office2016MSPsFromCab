@@ -9,7 +9,6 @@ Security Update for Microsoft OneNote 2016 (KB3115419) 32-Bit Edition
 Security Update for Microsoft Outlook 2016 (KB3118293) 32-Bit Edition
 Security Update for Microsoft Project 2016 (KB2920698) 32-Bit Edition
 Security Update for Microsoft Publisher 2016 (KB2920680) 32-Bit Edition
-Security Update for Microsoft Visio 2016 (KB3115041) 32-Bit Edition
 Security Update for Microsoft Word 2016 (KB3118331) 32-Bit Edition
 Security Update for Skype for Business 2016 (KB3118327) 32-Bit Edition
 Update for Microsoft Access 2016 (KB3115142) 32-Bit Edition
