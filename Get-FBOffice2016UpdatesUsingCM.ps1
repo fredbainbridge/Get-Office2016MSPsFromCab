@@ -62,4 +62,6 @@ git add .\Office2016OctUpdates-LocalizedName.txt
 git commit -a -m "updated Office KB files"
 git push
 
+.\Get-FBOffice2016Updates.ps1
+
 #$UpdateLine | ForEach-Object {$psItem.split(",")[0]} | select -Unique | clip
