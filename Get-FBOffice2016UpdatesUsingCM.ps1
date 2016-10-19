@@ -52,5 +52,14 @@ $Updates -split '[\r\n]' |? {$_}| ForEach-Object {
     }
 }
 
-$UpdateLine | clip
+#$UpdateLine | clip
+
+$UpdateLine > Office2016-Oct2016-SoftwareUpdates.txt
+
+#The git stuff
+git add .\Office2016-Oct2016-SoftwareUpdates.txt
+git add .\Office2016OctUpdates-LocalizedName.txt
+git commit -a -m "updated Office KB files"
+git push
+
 #$UpdateLine | ForEach-Object {$psItem.split(",")[0]} | select -Unique | clip
