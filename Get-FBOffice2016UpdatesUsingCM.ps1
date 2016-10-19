@@ -54,7 +54,8 @@ $Updates -split '[\r\n]' |? {$_}| ForEach-Object {
 
 #$UpdateLine | clip
 
-$UpdateLine > Office2016-Oct2016-SoftwareUpdates.txt
+#$UpdateLine > Office2016-Oct2016-SoftwareUpdates.txt
+$UpdateLine | out-File -FilePath "Office2016-Oct2016-SoftwareUpdates.txt" -Encoding ascii
 
 #The git stuff
 git add .\Office2016-Oct2016-SoftwareUpdates.txt
