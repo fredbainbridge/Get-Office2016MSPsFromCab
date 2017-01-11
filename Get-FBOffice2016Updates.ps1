@@ -1,18 +1,18 @@
-﻿[CmdletBinding()]
+﻿# The Update must be synced in Configmgr for this to work.  They don't have to be downloaded.
+# $OfficeUpdatesFile is a list of software updates LocalizedDisplayName to download.
+# The downloads are cab files, the msp files are then extracted from the cab files and saved to $StagingLocation
+# The $OfficeUpdatesFile is located in my github repository and will be be updated periodically. You can maintain this list yourself, just update this parameter. 
+# if the file is local, comment out line 40, 41 and 44 and uncomment out line 45 
+
+[CmdletBinding()]
 param(
     [string]$siteserver = "localhost",
     [string]$sitecode = "LAB",
     [string]$StagingLocation = "c:\fso1",
-    [string]$OfficeInstallatioNSourcePath = "\\cm01\Source\Microsoft Office 2016 x86\",
-    [string]$OfficeUpdatesFile = "https://raw.githubusercontent.com/fredbainbridge/Get-Office2016MSPsFromCab/master/Office2016-Oct2016-SoftwareUpdates.txt",
-    [bool]$UpdateDP = $false, 
-    [string]$appname = "Microsoft Office 2016 x86"
+    [string]$OfficeUpdatesFile = "https://raw.githubusercontent.com/fredbainbridge/Get-Office2016MSPsFromCab/master/Office2016-SoftwareUpdates.txt"
 )
-$NameSpace = "root\SMS\Site_$sitecode"
 $class = "SMS_SoftwareUpdate"
-    
-#download the text file.
-$updates = (Invoke-WebRequest -Uri $OfficeUpdatesFile).content
+$NameSpace = "root\SMS\Site_$sitecode"
 
 Function ConvertFrom-Cab
 {
@@ -36,59 +36,42 @@ Function ConvertFrom-Cab
     Write-Verbose "Expanding $cab to $destination"
     $DestinationFolder.CopyHere($sourceCab)
 }
-$UpdateLine = @();
+#one off downloads
+#$item = "Security Update for Microsoft Word 2016 (KB3128057) 32-Bit Edition"
+#$item | ForEach-Object {
 
-#debug
-#$FileName = "Office2016OctUpdates-Debug.txt"
-
-$Updates -split '[\r\n]' |? {$_}| ForEach-Object {
-    $UpdateName, $URL, $FileName = $PSItem.split(",")
+$updates = (Invoke-WebRequest -Uri $OfficeUpdatesFile).content
+$Updates -split '[\r\n]' |? {$_} |  ForEach-Object { 
+#Get-Content $OfficeUpdatesFile | ForEach-Object {
+    $KB = ($PSITEM -replace "^.*?(?=KB)", "") -replace "\W(.*)", ""
+    Write-Host "$KB - Downloading Update - $PSITEM"
     
-    $FileName = $StagingLocation + "\" +  (New-Guid).GUID + $FileName
-       
-    Start-BitsTransfer -Source $URL -Destination $FileName
-    If(Test-Path $FileName)
-    {
-        $GUID = (new-guid).Guid
-        $destination = "$StagingLocation\$GUID"
-        ConvertFrom-Cab -cab $FileName -destination $destination
-        Remove-Item -Path $FileName
-        Get-ChildItem -path $destination -Filter *.msp -Recurse | ForEach-Object {
-            Rename-Item -Path $PSItem.FullName -NewName ($PSItem.BaseName + (New-Guid).GUID + ".msp")
+    $CI_ID = (Get-WmiObject -ComputerName $siteserver -Class $class -Namespace $NameSpace -Filter "LocalizedDisplayName='$PSItem'" -Property "CI_ID").CI_ID
+    $ContentID = (get-wmiobject -ComputerName $siteserver -Query "select * from SMS_CItoContent where ci_id=$CI_ID" -Namespace $NameSpace).ContentID
+    #get the content location (URL)
+    $ContentID | ForEach-Object {
+        $objContent = Get-WmiObject -ComputerName $siteserver -Namespace $NameSpace -Class SMS_CIContentFiles -Filter "ContentID = '$PSITEM'" 
+        $FileName = $StagingLocation + "\" +  (New-Guid).GUID + $objContent.FileName
+        $URL = $objContent.SourceURL
+        try 
+        {
+            Start-BitsTransfer -Source $URL -Destination $FileName
+            If(Test-Path $FileName)
+            {
+                $GUID = (new-guid).Guid
+                $destination = "$StagingLocation\$GUID"
+                ConvertFrom-Cab -cab $FileName -destination $destination
+                Remove-Item -Path $FileName
+                Get-ChildItem -path $destination -Filter *.msp -Recurse | ForEach-Object {
+                    Rename-Item -Path $PSItem.FullName -NewName ("$kb-" + (New-Guid).GUID + ".msp")
+                }
+                Get-ChildItem -Path $destination -Filter *.msp -Recurse | Move-Item -Destination $StagingLocation
+                Remove-Item -path $destination -Recurse -Force
+            }
         }
-        Get-ChildItem -Path $destination -Filter *.msp -Recurse | Move-Item -Destination $StagingLocation
-        Remove-Item -path $destination -Recurse -Force
+        catch
+        {
+            write-host "stopping here"
+        }
     }
 }
-
-
-#delete existing updates - be careful here.  move any custom msps from this location first.
-Get-ChildItem -Path "$OfficeInstallatioNSourcePath\updates" -Filter *.msp | Remove-Item -Force 
-
-#move update to office folder
-Get-ChildItem -Path $StagingLocation -Filter *.msp  | move-item -Destination "$OfficeInstallatioNSourcePath\updates" -Verbose
-
-#Update the content
-#if($UpdateDP){
-#    (Get-Wmiobject -Namespace "root\SMS\Site_$sitecode" -Class SMS_ContentPackage -filter "Name='$appName'").Commit() 
-#}
-import-module 'C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\ConfigurationManager.psd1' -force #make this work for you
-if ((get-psdrive $sitecode -erroraction SilentlyContinue | measure).Count -ne 1) {
-    new-psdrive -Name $SiteCode -PSProvider "AdminUI.PS.Provider\CMSite" -Root $SiteServer
-}
-set-location $sitecode`:
-
-$dptypes = Get-CMDeploymentType -ApplicationName "$appname"
-foreach ($dpt in $dptypes)
-{
-    $dptname = $dpt.LocalizedDisplayName
-    Write-Verbose "Deployment Type: $dptname"
-    Update-CMDistributionPoint -ApplicationName "$appname" -DeploymentTypeName "$dptname"
-}
-
-           
-#see example here 
-#https://social.technet.microsoft.com/Forums/systemcenter/en-US/f11a43e0-409c-443a-adb0-74de102c40f7/add-updates-to-a-deployment-package-using-powershell?forum=configmgrgeneral&prof=required
-
-
-#Get-WmiObject -Class $class -Namespace $name
