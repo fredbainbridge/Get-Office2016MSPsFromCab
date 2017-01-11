@@ -8,7 +8,9 @@
 #
 # Use explicit parameters, do not update the Distribution Points
 # Get-Office2016MSPFromCab -SoftwareUpdatesFolder "\\cm01\SoftwareUpdates\Office2016x86Updates" -baseDestination "c:\fso1" -OfficeUpdatesFolder "\\cm01\Source\Microsoft Office 2016 x86\updates" 
-
+#
+# This assumes you have used ConfigMgr to download all the relevant Office 2016 patches and downloaded them to $SoftwareUpdatesFolder
+ 
 #special thanks to https://technet.microsoft.com/en-us/magazine/2009.04.heyscriptingguy.aspx
 Function ConvertFrom-Cab
 {
