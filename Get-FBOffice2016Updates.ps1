@@ -4,6 +4,9 @@
 # The $OfficeUpdatesFile is located in my github repository and will be be updated periodically. You can maintain this list yourself, just update this parameter. 
 # if the file is local, comment out line 40, 41 and 44 and uncomment out line 45 
 
+# usage examples
+# .\Get-FBOffice2016Updates.ps1 -siteserver nm-cm12 -sitecode ps1
+
 [CmdletBinding()]
 param(
     [string]$siteserver = "localhost",
