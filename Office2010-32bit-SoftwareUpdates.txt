@@ -1,0 +1,120 @@
+Definition Update for Microsoft Office 2010 (KB3115475) 32-Bit Edition
+Definition Update for Microsoft Office 2010 (KB982726) 32-Bit Edition
+Security Update for Microsoft Access 2010 (KB3101544) 32-Bit Edition
+Security Update for Microsoft Excel 2010 (KB4011660) 32-Bit Edition
+Security Update for Microsoft InfoPath 2010 (KB3114414) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2553154) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2553313) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2553338) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2589288) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2687423) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2837599) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2850016) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2880971) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2881029) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2899516) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2956063) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB2956076) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3054984) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3085528) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3101520) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3115120) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3118389) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3191908) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3203468) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3213626) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3213631) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB3213638) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011610) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011611) 32-Bit Edition
+Security Update for Microsoft Office 2010 (KB4011658) 32-Bit Edition
+Security Update for Microsoft OneNote 2010 (KB3114885) 32-Bit Edition
+Security Update for Microsoft Outlook 2010 (KB4011273) 32-Bit Edition
+Security Update for Microsoft PowerPoint 2010 (KB2920812) 32-Bit Edition
+Security Update for Microsoft PowerPoint 2010 (KB3128027) 32-Bit Edition
+Security Update for Microsoft PowerPoint Viewer 2010 (KB3128030) 32-Bit Edition
+Security Update for Microsoft Project 2010 (KB3085614) 32-Bit Edition
+Security Update for Microsoft Publisher 2010 (KB3141537) 32-Bit Edition
+Security Update for Microsoft SharePoint Designer 2010 (KB2810069) 32-Bit Edition
+Security Update for Microsoft Visio 2010 (KB3114872) 32-Bit Edition
+Security Update for Microsoft Visio Viewer 2010 (KB2999465) 32-Bit Edition
+Security Update for Microsoft Word 2010 (KB2965313) 32-Bit Edition
+Security Update for Microsoft Word 2010 (KB4011659) 32-Bit Edition
+Service Pack 1 for Microsoft Access Database Engine 2010 (KB2460011) 32-bit Edition
+Service Pack 2 for Microsoft Office 2010 (KB2687455) 32-Bit Edition
+Service Pack 2 for Microsoft Office 2010 Filter Pack (KB2687447) 32-Bit Edition
+Service Pack 2 for Microsoft Office 2010 Language Pack (KB2687449) 32-Bit Edition
+Service Pack 2 for Microsoft Office Language Interface Pack 2010 (KB2687450) 32-Bit Edition
+Service Pack 2 for Microsoft PowerPoint Viewer (KB2687456) 32-Bit Edition
+Service Pack 2 for Microsoft Visio 2010 Viewer (KB2687469) 32-Bit Edition
+Service Pack for Business Contact Manager for Microsoft Outlook 2010 (KB2553006), 32-bit Edition
+Update for Microsoft Excel 2010 (KB2956084) 32-Bit Edition
+Update for Microsoft Filter Pack 2.0 (KB2999508) 32-Bit Edition
+Update for Microsoft InfoPath 2010 (KB2817369) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2553092), 32-Bit Edition
+Update for Microsoft Office 2010 (KB2553140) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2553347) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2553388) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2589298) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2589318) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2589352) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2589375) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2589386) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2597087) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2687275) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2791057) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2825640) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2881030) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2883019) 32-Bit Edition
+Update for Microsoft Office 2010 (KB2986257) 32-Bit Edition
+Update for Microsoft Office 2010 (KB3054873) 32-Bit Edition
+Update for Microsoft Office 2010 (KB3054886) 32-Bit Edition
+Update for Microsoft Office 2010 (KB3055047) 32-Bit Edition
+Update for Microsoft Office 2010 (KB3114555) 32-Bit Edition
+Update for Microsoft Office 2010 (KB3128031) 32-Bit Edition
+Update for Microsoft Outlook 2010 (KB2760779) 32-Bit Edition
+Update for Microsoft Outlook Social Connector 2010 (KB2553308) 32-Bit Edition
+Update for Microsoft Outlook Social Connector 2010 (KB2553406) 32-Bit Edition
+Update for Microsoft Project 2010 (KB3054882) 32-Bit Edition
+Update for Microsoft Project 2010 (KB3118393) 32-Bit Edition
+Update for Microsoft SharePoint Designer 2010 (KB2553459) 32-Bit Edition
+Update for Microsoft SharePoint Designer 2010 (KB2881023) 32-Bit Edition
+Update for Microsoft SharePoint Workspace 2010 (KB2760601) 32-Bit Edition
+Update for Microsoft Visio 2010 (KB2881025) 32-Bit Edition
+Update for Office File Validation 2010 (KB2553065), 32-bit Edition
