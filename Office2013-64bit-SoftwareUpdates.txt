@@ -1,0 +1,94 @@
+Security Update for Microsoft Access 2013 (KB3085584) 64-Bit Edition
+Definition Update for Microsoft Office 2013 (KB2760587) 64-Bit Edition
+Definition Update for Microsoft Office 2013 (KB3115404) 64-Bit Edition
+Security Update for Microsoft Excel 2013 (KB4011639) 64-Bit Edition
+Security Update for Microsoft InfoPath 2013 (KB3054793) 64-Bit Edition
+Security Update for Microsoft InfoPath 2013 (KB3114833) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB2726958) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB2760272) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB2768005) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB2880463) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB2910941) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB3039782) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB3039798) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB3054816) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB3115153) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB3162051) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB3172524) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB3172531) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB3213564) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB4011277) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB4011580) 64-Bit Edition
+Security Update for Microsoft Office 2013 (KB4011636) 64-Bit Edition
+Security Update for Microsoft OneNote 2013 (KB3115256) 64-Bit Edition
+Security Update for Microsoft Outlook 2013 (KB4011637) 64-Bit Edition
+Security Update for Microsoft PowerPoint 2013 (KB4011069) 64-Bit Edition
+Security Update for Microsoft Project 2013 (KB3101506) 64-Bit Edition
+Security Update for Microsoft Publisher 2013 (KB3085561) 64-Bit Edition
+Security Update for Microsoft SharePoint Designer 2013 (KB2752096) 64-Bit Edition
+Security Update for Microsoft SharePoint Designer 2013 (KB2863836) 64-Bit Edition
+Security Update for Microsoft SharePoint Server 2013 Client Components SDK (KB2863854) 64-Bit Edition
+Security Update for Microsoft Visio 2013 (KB3115020) 64-Bit Edition
+Security Update for Microsoft Word 2013 (KB4011651) 64-Bit Edition
+Security Update for Skype for Business 2015 (KB3039779) 64-Bit Edition
+Security Update for Skype for Business 2015 (KB4011179) 64-Bit Edition
+Service Pack 1 for Microsoft Office 2013 (KB2850036) 64-Bit Edition
+Service Pack 1 for Microsoft Office 2013 Language Interface Pack (KB2817428) 64-Bit Edition
+Service Pack 1 for Microsoft Office ScreenTip Language 2013 (KB2817436) 64-Bit Edition
+Service Pack 1 for Microsoft Visio 2013 Viewer (KB2817444) 64-Bit Edition
+Update for Microsoft Access 2013 (KB3172543) 64-Bit Edition
+Update for Microsoft Excel 2013 (KB2817425) 64-Bit Edition
+Update for Microsoft InfoPath 2013 (KB3114818) 64-Bit Edition
+Update for Microsoft InfoPath 2013 (KB3114946) 64-Bit Edition
+Update for Microsoft Office 2013 (KB2760344) 64-Bit Edition
+Update for Microsoft Office 2013 (KB2760371) 64-Bit Edition
+Update for Microsoft Office 2013 (KB2817316) 64-Bit Edition
+Update for Microsoft Office 2013 (KB2883095) 64-Bit Edition
+Update for Microsoft Office 2013 (KB2889863) 64-Bit Edition
+Update for Microsoft Office 2013 (KB2899522) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3023049) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3023052) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3039701) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3039720) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3039750) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3039756) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3039766) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3039778) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3039795) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3054819) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3054856) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3055006) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3055007) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3085482) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3085565) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3085578) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3085587) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3101487) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3101503) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3114488) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3114499) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3114825) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3127916) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3172443) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3172510) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3172523) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3172533) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3172545) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3191872) 64-Bit Edition
+Update for Microsoft Office 2013 (KB3213536) 64-Bit Edition
+Update for Microsoft Office 2013 (KB4011087) 64-Bit Edition
+Update for Microsoft Office 2013 (KB4011106) 64-Bit Edition
+Update for Microsoft OneDrive for Business (KB3178645) 64-Bit Edition
+Update for Microsoft OneNote 2013 (KB4011075) 64-Bit Edition
+Update for Microsoft Outlook Social Connector 2013 (KB3054854) 64-Bit Edition
+Update for Microsoft PowerPoint 2013 (KB4011635) 64-Bit Edition
+Update for Microsoft Project 2013 (KB4011640) 64-Bit Edition
+Update for Microsoft Publisher 2013 (KB3114329) 64-Bit Edition
+Update for Microsoft SharePoint Designer 2013 (KB2760212) 64-Bit Edition
+Update for Microsoft SharePoint Designer 2013 (KB3114721) 64-Bit Edition
+Update for Microsoft SharePoint Server 2013 Client Components SDK (KB3118347) 64-Bit Edition
+Update for Microsoft SkyDrive Pro (KB2837652) 64-Bit Edition
+Update for Microsoft Visio 2013 (KB4011149) 64-Bit Edition
+Update for Microsoft Visio Viewer 2013 (KB2817301) 64-Bit Edition
+Update for Microsoft Word 2013 (KB3162081) 64-Bit Edition
+Update for Skype for Business 2015 (KB4011638) 64-Bit Edition

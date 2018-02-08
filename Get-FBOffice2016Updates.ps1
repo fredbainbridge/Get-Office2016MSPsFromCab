@@ -1,8 +1,8 @@
 ﻿# The Update must be synced in Configmgr for this to work.  They don't have to be downloaded.
 # $OfficeUpdatesFile is a list of software updates LocalizedDisplayName to download.
 # The downloads are cab files, the msp files are then extracted from the cab files and saved to $StagingLocation
-# The $OfficeUpdatesFile is located in my github repository and will be be updated periodically. You can maintain this list yourself, just update this parameter. 
-# if the file is local, comment out line 40, 41 and 44 and uncomment out line 45 
+# The $OfficeUpdatesFile is located in my github repository and will be be updated periodically. You can maintain this list yourself, just update this parameter.
+# if the file is local, comment out line 40, 41 and 44 and uncomment out line 45
 
 # usage examples
 # .\Get-FBOffice2016Updates.ps1 -siteserver nm-cm12 -sitecode ps1
@@ -12,7 +12,7 @@ param(
     [string]$siteserver = "localhost",
     [string]$sitecode = "LAB",
     [string]$StagingLocation = "c:\fso1",
-    [string]$OfficeUpdatesFile = "https://raw.githubusercontent.com/fredbainbridge/Get-Office2016MSPsFromCab/master/Office2016-SoftwareUpdates.txt"
+    [string]$OfficeUpdatesFile = "https://raw.githubusercontent.com/fredbainbridge/Get-Office2016MSPsFromCab/master/Office2016-64bit-SoftwareUpdates.txt"
 )
 $class = "SMS_SoftwareUpdate"
 $NameSpace = "root\SMS\Site_$sitecode"
@@ -31,7 +31,7 @@ Function ConvertFrom-Cab
     Write-Verbose "Creating source cab object for $cab"
     $sourceCab = $shell.Namespace("$cab").items()
     Write-Verbose "Creating destination folder object for $destination"
-    if(-not (Test-Path $destination)) 
+    if(-not (Test-Path $destination))
     {
        new-item $destination -ItemType Directory
     }
@@ -44,19 +44,19 @@ Function ConvertFrom-Cab
 #$item | ForEach-Object {
 
 $updates = (Invoke-WebRequest -Uri $OfficeUpdatesFile).content
-$Updates -split '[\r\n]' |? {$_} |  ForEach-Object { 
+$Updates -split '[\r\n]' |? {$_} |  ForEach-Object {
 #Get-Content $OfficeUpdatesFile | ForEach-Object {
     $KB = ($PSITEM -replace "^.*?(?=KB)", "") -replace "\W(.*)", ""
     Write-Host "$KB - Downloading Update - $PSITEM"
-    
+
     $CI_ID = (Get-WmiObject -ComputerName $siteserver -Class $class -Namespace $NameSpace -Filter "LocalizedDisplayName='$PSItem'" -Property "CI_ID").CI_ID
     $ContentID = (get-wmiobject -ComputerName $siteserver -Query "select * from SMS_CItoContent where ci_id=$CI_ID" -Namespace $NameSpace).ContentID
     #get the content location (URL)
     $ContentID | ForEach-Object {
-        $objContent = Get-WmiObject -ComputerName $siteserver -Namespace $NameSpace -Class SMS_CIContentFiles -Filter "ContentID = '$PSITEM'" 
+        $objContent = Get-WmiObject -ComputerName $siteserver -Namespace $NameSpace -Class SMS_CIContentFiles -Filter "ContentID = '$PSITEM'"
         $FileName = $StagingLocation + "\" +  (New-Guid).GUID + $objContent.FileName
         $URL = $objContent.SourceURL
-        try 
+        try
         {
             Start-BitsTransfer -Source $URL -Destination $FileName
             If(Test-Path $FileName)
